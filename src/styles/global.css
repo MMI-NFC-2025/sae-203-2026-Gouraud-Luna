@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+    --color-sable: oklch(0.8916 0.0422 75.4);
+    --color-back: oklch(0.3708 0.0471 249.2);
+}
