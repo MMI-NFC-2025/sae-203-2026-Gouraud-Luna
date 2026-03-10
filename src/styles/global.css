@@ -1,8 +1,13 @@
 @import "tailwindcss";
+@import "@fontsource/lato/400.css";
+@import "@fontsource/lato/700.css";
+@import "@fontsource/pacifico/400.css";
 
 @theme {
     --color-sable: oklch(0.8916 0.0422 75.4);
     --color-back: oklch(0.3708 0.0471 249.2);
+    --color-vert: oklch(0.7149 0.1118 124.3);
+    --color-vert-fonce: oklch(0.3374 0.0601 151.28);
     --font-lato: 'Lato';
     --font-pacifico: 'Pacifico';
     --text-base: 15px;
