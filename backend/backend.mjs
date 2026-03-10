@@ -2,17 +2,17 @@ import PocketBase from 'pocketbase';
 export const pb = new PocketBase('http://127.0.0.1:8090') ;
 
 export async function allArtisteSorted() {
-const records = await pb.collection('Artistes').getList(1, 50, { sort : 'Date_heure_production' }) ;
+const records = await pb.collection('Artistes').getFullList({ sort : 'Date_heure_production' }) ;
 return records ;
 }
 
 export async function SceneSortedByName() {
-const records = await pb.collection('Scenes').getList(1, 50, { sort : 'Nom' }) ;
+const records = await pb.collection('Scenes').getFullList({ sort : 'Nom' }) ;
 return records ;
 }
 
 export async function allArtisteSortedByName() {
-const records = await pb.collection('Artistes').getList(1, 50, { sort : 'Nom' }) ;
+const records = await pb.collection('Artistes').getFullList({ sort : 'Nom' }) ;
 return records ;
 }
 

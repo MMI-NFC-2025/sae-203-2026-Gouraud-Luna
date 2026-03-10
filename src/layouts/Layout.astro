@@ -7,7 +7,6 @@ const { titre } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<Header/>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -17,9 +16,10 @@ const { titre } = Astro.props;
 		<title>{ titre }</title>
 	</head>
 	<body>
+		<Header/>
 		<slot />
+		<Footer/>
 	</body>
-	<Footer/>
 </html>
 
 

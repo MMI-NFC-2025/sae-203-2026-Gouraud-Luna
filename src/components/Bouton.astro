@@ -1,10 +1,10 @@
 ---
-const { contenue, taille = 'text-3xl' } = Astro.props;
+const { contenue, taille = 'text-3xl', classe = '' } = Astro.props;
 const sizeClass = taille === 'text-2xl' ? 'text-2xl' : 'text-3xl';
 ---
 
-<div class="bg-sable rounded-lg text-center m-6 py-1.5 px-2">
-    <a class={`text-back font-pacifico ${sizeClass}`} href="#">
+<div class={`bg-sable rounded-lg text-center m-6 py-1.5 px-2 ${classe}`}>
+    <a class={`text-back font-pacifico ${sizeClass}  `} href="#">
             {contenue}
     </a>
 </div>

@@ -1,35 +1,49 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Bouton from '../components/Bouton.astro';
+import {allArtisteSorted} from '../../backend/backend.mjs';
+const artistes = (await allArtisteSorted()) as any[];
+console.log(artistes)
 ---
 
 <Layout titre="Accueil">
+	<div>
 	<!--Image Hero-->
-	<h3 class="text-sable text-center my-6">Les 6 et 7 Juin 2026</h3>
-	<Bouton contenue="Billeterie"/>
-	<div>
-<!--liste d'artiste avec Pocketbase-->
+		<div class="grille">
+			<h3 class="text-sable mt-10 lg:col-start-4 lg:col-end-9 text-center">Les 6 et 7 Juin 2026</h3>
+			<Bouton contenue="Billetterie" classe="lg:col-start-3 lg:col-end-10"/>
+		</div>
+		<div class="grille mt-6">
+			<ul class="lg:col-start-3 lg:col-end-10 flex flex-wrap justify-center gap-4 text-center text-2xl">
+				{
+					artistes.map((Artiste) => (
+						<li>{Artiste.Nom}</li>
+					))
+				}
+			</ul>
+		</div>
+		<div class="grille">
+			<Bouton contenue="Programme" classe="lg:col-start-3 lg:col-end-10"/>
+		</div>
+		<div>
+	<!--image d'artiste avec Pocketbase-->
+		</div>
+		<!--Image Festival-->
+		<div class="grille">
+			<p class="lg:col-start-1 lg:col-span-5">
+				Le Flying Tap Fest vous ouvre ses portes au coeur du site naturel du Malsaucy,
+				pour une première édition dédiée à la danse, au mouvement et à la créativité.<br /><br />
+				Parking gratuit sur place<br /><br />
+				Espace vélo sécurisé<br /><br />
+				Stands de restauration, zones chill, animations participatives et découvertes
+				artistiques tout au long de la journée.<br /><br />
+				Retrouvez également nos partenaires locaux et engagés dans une démarche
+				eco-responsable, qui soutiennent une culture plus durable.
+			</p>
+		</div>
+		<div class="grille">
+			<Bouton contenue="Plus d'informations" taille="text-2xl" classe="lg:col-start-3 lg:col-end-10"/>
+		</div>
 	</div>
-	<Bouton contenue="Programme"/>
-	<div>
-<!--image d'artiste avec Pocketbase-->
-	</div>
-	<!--Image Festival-->
-	<div>
-		<p>
-			Le Flying Tap Fest vous ouvre ses portesau coeur du site naturel du Malsaucy,
-			 pour une premiere edition dediee a la danse, au mouvement et a la creativite.
-			 <br/>
-			 Parking gratuit sur place
-			 <br/>
-			 Espace velo securise
-			 <br/>
-			Stands de restauration, zones chill, animations participatives et
-			decouvertes artistiques tout au long de la journee.
-			<br/>
-			Retrouvez egalement nos partenaires locaux et engages dans une demarche 
-			eco-responsable, qui soutiennent une culture plus durable.
-		</p>
-	</div>
-	<Bouton contenue="Plus d'informations" taille="text-2xl"/>
+	
 </Layout >

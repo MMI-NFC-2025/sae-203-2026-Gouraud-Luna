@@ -10,11 +10,13 @@
     --color-vert-fonce: oklch(0.3374 0.0601 151.28);
     --font-lato: 'Lato';
     --font-pacifico: 'Pacifico';
-    --text-base: 15px;
-    --text-lg: 18px;
-    --text-xl: 24px;
+    --text-base: 20px;
+    --text-lg: 24px;
+    --text-xl: 26px;
     --text-2xl: 32px;
     --text-3xl: 48px;
+
+    --my-grid: repeat(12, minmax(0,70px))
 }
 
 @layer base{
@@ -27,4 +29,10 @@
     h3{
         @apply text-xl  font-lato font-bold;
     }
+}
+
+@layer components {
+  .grille {
+    @apply px-6 lg:grid lg:grid-cols-(--my-grid) lg:justify-center lg:gap-12;
+  }
 }

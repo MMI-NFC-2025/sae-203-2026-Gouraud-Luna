@@ -1,24 +1,27 @@
 ---
 import Logo from "../assets/icons/logo_dark.svg";
+import FFD from "../assets/icons/ffd.svg";
+import BelfortLogo from "../assets/icons/Territoire_belfort_logo_bleu.svg";
 ---
 
-<footer class="bg-sable">
-        <ul>
+<footer class="bg-sable grille">
+    <ul class="lg:col-start-2 lg:col-end-12 flex items-center justify-between w-full lg:flex-nowrap">
             <li>
                 <a href="https://www.ffdanse.fr/">
-                    <!--Image partenaire -->
+                    <FFD/>
                         
                 </a>
             </li>
             <li>
                 <a href="https://www.territoiredebelfort.fr/">
-                    <!--Image partenaire -->
+                    <BelfortLogo/>
                 </a>
             </li>
-            <li>
+            <li class="">
                 <a href="#">
                     <Logo/>
                 </a>
             </li>
+            <li class="text-back font-lato text-lg"><a href="">Nous contacter</a></li>
         </ul>
     </footer>
