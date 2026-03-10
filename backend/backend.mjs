@@ -47,3 +47,7 @@ export async function allArtisteBySceneNameDate(scene_name) {
 export async function updateArtistesById(id, updateArtistes) {
     await pb.collection('Artistes').update(id, updateArtistes)
 }
+
+export async function getImageUrl(record, recordImage) {
+    return pb.files.getURL(record, recordImage);
+}

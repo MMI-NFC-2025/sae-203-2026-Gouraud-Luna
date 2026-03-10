@@ -1,0 +1,18 @@
+---
+import { getImageUrl } from '../../backend/backend.mjs';
+
+const { record, recordImage, width, height, MyClass } = Astro.props;
+
+const imageURL = await getImageUrl(record, recordImage);
+---
+
+{imageURL && 
+    <img
+        src={imageURL}
+        alt={record.Nom || 'Image'}
+        width={width}
+        height={height}
+        class={MyClass}
+        loading="lazy"
+    />
+}

@@ -2,13 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import Bouton from '../components/Bouton.astro';
 import {allArtisteSorted} from '../../backend/backend.mjs';
-const artistes = (await allArtisteSorted()) as any[];
-console.log(artistes)
+import { Image } from "astro:assets";
+import HeroImg from '../assets/img/Hero_acceuil.webp';
+import ImgFesti from '../assets/img/img_festival.webp';
+import PbImage from '../components/PbImage.astro';
+const artiste = (await allArtisteSorted()) as any[];
+console.log(artiste)
+
 ---
 
 <Layout titre="Accueil">
 	<div>
-	<!--Image Hero-->
+		<Image src={HeroImg} alt="Image Hero" class="h-auto w-full" />
 		<div class="grille">
 			<h3 class="text-sable mt-10 lg:col-start-4 lg:col-end-9 text-center">Les 6 et 7 Juin 2026</h3>
 			<Bouton contenue="Billetterie" classe="lg:col-start-3 lg:col-end-10"/>
@@ -16,19 +21,29 @@ console.log(artistes)
 		<div class="grille mt-6">
 			<ul class="lg:col-start-3 lg:col-end-10 flex flex-wrap justify-center gap-4 text-center text-2xl">
 				{
-					artistes.map((Artiste) => (
+					artiste.map((Artiste) => (
 						<li>{Artiste.Nom}</li>
 					))
 				}
 			</ul>
 		</div>
+		
+		<div class="grille mt-8">
+			<div class="lg:col-start-3 lg:col-end-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+				{
+					artiste.map((Artiste) => (
+						<PbImage record={Artiste} recordImage={Artiste.Photo} width={400} height={300} MyClass="h-full w-full rounded-[50px] object-cover"/>
+
+					))
+				}
+			</div>
+		</div>
 		<div class="grille">
 			<Bouton contenue="Programme" classe="lg:col-start-3 lg:col-end-10"/>
 		</div>
 		<div>
-	<!--image d'artiste avec Pocketbase-->
+			<Image src={ImgFesti} alt="Image du festival" class="h-auto w-full" />
 		</div>
-		<!--Image Festival-->
 		<div class="grille">
 			<p class="lg:col-start-1 lg:col-span-5">
 				Le Flying Tap Fest vous ouvre ses portes au coeur du site naturel du Malsaucy,
