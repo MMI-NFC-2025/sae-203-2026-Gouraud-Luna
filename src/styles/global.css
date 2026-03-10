@@ -16,3 +16,15 @@
     --text-2xl: 32px;
     --text-3xl: 48px;
 }
+
+@layer base{
+    body{
+        @apply font-lato text-base bg-back text-sable;
+    }
+    h1{
+        @apply text-3xl font-pacifico;
+    }
+    h3{
+        @apply text-xl  font-lato font-bold;
+    }
+}
