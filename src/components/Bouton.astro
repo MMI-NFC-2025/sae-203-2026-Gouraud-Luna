@@ -1,6 +1,6 @@
 ---
 const { contenue, lien, couleur, couleurbg, police = 'font-pacifico', taille = 'text-3xl', classe = '' } = Astro.props;
-const sizeClass = taille === 'text-2xl' ? 'text-2xl' : 'text-3xl';
+const sizeClass = typeof taille === 'string' && taille.trim() ? taille : 'text-3xl';
 const backgroundColor = couleur ?? couleurbg ?? 'bg-sable';
 const finalBgColor = backgroundColor === 'bg-vert' || backgroundColor === 'bg-back' || backgroundColor === 'bg-sable' ? backgroundColor : 'bg-sable';
 const couleurTexte = finalBgColor === 'bg-back' ? 'text-sable' : 'text-back';
