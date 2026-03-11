@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout titre="Contact">
+    <h1 class="px-6 mt-6 text-center">Contact</h1>
+    <form class="mx-auto flex w-full max-w-3xl flex-col gap-4 px-6 pb-20 lg:px-10">
+            <div>
+                <p>Nom</p>
+                <input type="text" name="Nom" placeholder="Ex : Martin" required class="w-full rounded-md border border-gray-300 bg-sable p-2 placeholder:text-back/70" />
+            </div>
+            <div>
+                <p>Prénom</p>
+                <input type="text" name="Prénom" placeholder="Ex : Jean" required class="w-full rounded-md border border-gray-300 bg-sable p-2 placeholder:text-back/70" />
+            </div>
+            <div>
+                <p>E-mail</p>
+                <input type="text" name="Email" placeholder="Ex : jean.martin@gmail.fr" required class="w-full rounded-md border border-gray-300 bg-sable p-2 placeholder:text-back/70" />
+            </div>
+            <div>
+                <p>Sujet</p>
+                <input type="text" name="Sujet" placeholder="Votre sujet" required class="w-full rounded-md border border-gray-300 bg-sable p-2  placeholder:text-back/70" />
+            </div>
+            <div>
+                <p>Message</p>
+                <input type="text" name="Message" placeholder="Votre message" required class="h-70 w-full rounded-md border border-gray-300 bg-sable p-2 placeholder:text-back/70" />
+            </div>
+            <div>
+                <button type="submit" class="w-full rounded-xl bg-vert py-2 text-lg font-bold text-back">Envoyer</button>
+            </div>
+            
+        </form>
+</Layout>
