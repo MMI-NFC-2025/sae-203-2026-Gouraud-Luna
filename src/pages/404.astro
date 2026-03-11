@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+import { Image } from "astro:assets";
+import LogoLight from "../assets/icons/Logo_light.svg";
+import Bouton from '../components/Bouton.astro';
+---
+
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>error : 404</title>
+	</head>
+	<body>
+		<div class="flex min-h-screen flex-col items-center justify-center gap-8 bg-back">
+			<div class="flex items-center justify-center">
+                <Image src={LogoLight} alt="Logo" class="h-80 w-auto" />
+            </div>
+			<p class="text-8xl font-pacifico">
+            404
+            </p>
+            <p class="text-lg">
+            On dirait que cette page n’a pas suivi le rythme.
+            </p>
+			<Bouton contenue="Retour à l'accueil" lien="/" couleur="bg-vert"/>
+        </div>
+	</body>
+</html>

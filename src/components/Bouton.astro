@@ -1,10 +1,14 @@
 ---
-const { contenue, taille = 'text-3xl', classe = '' } = Astro.props;
+const { contenue, lien, couleur, couleurbg, police = 'font-pacifico', taille = 'text-3xl', classe = '' } = Astro.props;
 const sizeClass = taille === 'text-2xl' ? 'text-2xl' : 'text-3xl';
+const backgroundColor = couleur ?? couleurbg ?? 'bg-sable';
+const finalBgColor = backgroundColor === 'bg-vert' || backgroundColor === 'bg-back' || backgroundColor === 'bg-sable' ? backgroundColor : 'bg-sable';
+const couleurTexte = finalBgColor === 'bg-back' ? 'text-sable' : 'text-back';
+const font = police === 'font-lato' || police === 'font-pacifico' ? police : 'font-pacifico';
 ---
 
-<div class={`bg-sable rounded-lg text-center m-6 py-1.5 px-2 ${classe}`}>
-    <a class={`text-back font-pacifico ${sizeClass}  `} href="#">
+<div class={`${finalBgColor} rounded-lg text-center m-6 py-1.5 px-2 ${classe}`}>
+    <a class={`${couleurTexte} ${font} ${sizeClass}`} href={lien}>
             {contenue}
     </a>
 </div>
