@@ -24,7 +24,7 @@
         @apply font-lato text-base bg-back text-sable;
     }
     h1{
-        @apply text-3xl font-pacifico;
+        @apply text-3xl font-pacifico my-6 text-center;
     }
     h3{
         @apply text-xl  font-lato font-bold;

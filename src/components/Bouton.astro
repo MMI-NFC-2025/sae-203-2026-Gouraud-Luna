@@ -2,7 +2,7 @@
 const { contenue, lien, couleur, couleurbg, police = 'font-pacifico', taille = 'text-3xl', classe = '' } = Astro.props;
 const sizeClass = typeof taille === 'string' && taille.trim() ? taille : 'text-3xl';
 const backgroundColor = couleur ?? couleurbg ?? 'bg-sable';
-const finalBgColor = backgroundColor === 'bg-vert' || backgroundColor === 'bg-back' || backgroundColor === 'bg-sable' ? backgroundColor : 'bg-sable';
+const finalBgColor = backgroundColor === 'bg-vert' || backgroundColor === 'bg-back' || backgroundColor === 'bg-sable' || backgroundColor === 'bg-vert-fonce' ? backgroundColor : 'bg-sable';
 const couleurTexte = finalBgColor === 'bg-back' ? 'text-sable' : 'text-back';
 const font = police === 'font-lato' || police === 'font-pacifico' ? police : 'font-pacifico';
 ---

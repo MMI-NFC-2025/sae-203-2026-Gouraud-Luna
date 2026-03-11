@@ -1,13 +1,30 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Bouton from "../../components/Bouton.astro";
+import ArtisteCard from "../../components/ArtisteCard.astro";
+import { allArtisteSorted } from "../../../backend/backend.mjs";
+
+const artistes = await allArtisteSorted();
 ---
 
 <Layout titre="Programme">
-    <div>
+    <div >
         <div>
             <h1>Programme</h1>
         </div>
-        <Bouton contenue="Télécharger le programme" couleur="bg-vert" police="font-lato" taille="text-lg"/>
+        <div class="grille flex items-center">
+            <Bouton contenue="Télécharger le programme" couleur="bg-vert" police="font-lato" taille="text-lg" />
+            <Bouton contenue="Filtrer par scène" couleur="bg-vert" police="font-lato" taille="text-lg" />
+            <Bouton contenue="Filtrer par jour" couleur="bg-vert" police="font-lato" taille="text-lg" lien="/Programme" />
+        </div>
+        <div class="grille">
+            <div class="lg:col-start-2 lg:col-end-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-10 mb-30">
+                {
+                    artistes.map((artiste) => (
+                        <ArtisteCard artiste={artiste} />
+                    ))
+                }
+            </div>
+        </div>
     </div>
 </Layout>

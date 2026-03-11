@@ -1,0 +1,21 @@
+---
+import { oneArtiste, scenesByArtisteId } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import PbImage from "../../components/PbImage.astro";
+
+const {id} = Astro.params;
+const artiste = await oneArtiste(id);
+const scenes = await scenesByArtisteId(id);
+const sceneNom = scenes.length > 0 ? scenes.map((scene) => scene.Nom).join(', ') : 'Scene inconnue';
+---
+
+<Layout titre={artiste.Nom}>
+    <!-- <PbImage/>-->
+    <h1>{artiste.Nom}</h1>
+    <p>
+        {artiste.Date_heure_production}
+    </p>
+    <p>{sceneNom}</p>
+    <p>{artiste.Description}</p>
+    <!--Gallery -->
+</Layout>

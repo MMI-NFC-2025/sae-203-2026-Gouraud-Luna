@@ -1,6 +1,11 @@
 import PocketBase from 'pocketbase';
 export const pb = new PocketBase('http://127.0.0.1:8090') ;
 
+export async function allArtiste() {
+const records = await pb.collection('Artistes').getFullList();
+return records ;
+}
+
 export async function allArtisteSorted() {
 const records = await pb.collection('Artistes').getFullList({ sort : 'Date_heure_production' }) ;
 return records ;
@@ -51,3 +56,23 @@ export async function updateArtistesById(id, updateArtistes) {
 export async function getImageUrl(record, recordImage) {
     return pb.files.getURL(record, recordImage);
 }
+
+export async function allArtisteByScene(scene_name) {
+    const records = await pb.collection('Artistes').getFullList({
+        filter: `Scene.id= '${scene_name}'`,
+        expand: 'Scene',
+    })
+    return records;
+}
+
+export async function scenesByArtisteId(artiste_id) {
+    const artiste = await pb.collection('Artistes').getOne(artiste_id, {
+        expand: 'Scene',
+    });
+
+    const scenes = artiste.expand?.Scene;
+    if (!scenes) return [];
+
+    return Array.isArray(scenes) ? scenes : [scenes];
+}
+
