@@ -10,12 +10,23 @@ const sceneNom = scenes.length > 0 ? scenes.map((scene) => scene.Nom).join(', ')
 ---
 
 <Layout titre={artiste.Nom}>
-    <!-- <PbImage/>-->
     <h1>{artiste.Nom}</h1>
-    <p>
-        {artiste.Date_heure_production}
-    </p>
-    <p>{sceneNom}</p>
-    <p>{artiste.Description}</p>
-    <!--Gallery -->
+    <div class="grille pb-16">
+        <div class="lg:col-start-2 lg:col-end-7">
+            <PbImage
+                record={artiste}
+                recordImage={artiste.Photo}
+                width={900}
+                height={700}
+                MyClass="h-auto w-full rounded-[7px] object-cover"
+            />
+        </div>
+        <div class="mt-6 space-y-4 lg:col-start-7 lg:col-end-12 lg:mt-0">
+            <p>
+                {new Date(artiste.Date_heure_production).toLocaleString('fr-FR')}
+            </p>
+            <p><strong>Scene :</strong> {sceneNom}</p>
+            <p>{artiste.Description}</p>
+        </div>
+    </div>
 </Layout>

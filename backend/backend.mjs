@@ -75,4 +75,3 @@ export async function scenesByArtisteId(artiste_id) {
 
     return Array.isArray(scenes) ? scenes : [scenes];
 }
-
