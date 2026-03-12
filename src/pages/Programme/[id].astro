@@ -1,12 +1,11 @@
 ---
-import { oneArtiste, scenesByArtisteId, oneScene } from "../../../backend/backend.mjs";
+import { oneArtiste, scenesByArtisteId } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import PbImage from "../../components/PbImage.astro";
 
 const {id} = Astro.params;
-const scenes = await oneArtiste(id);
-
-const sceneNom = await oneScene(id);
+const artiste = await oneArtiste(id);
+const scenes = await scenesByArtisteId(id);
 ---
 
 <Layout titre={artiste.Nom}>
@@ -22,7 +21,11 @@ const sceneNom = await oneScene(id);
             />
         </div>
         <div class="mt-6 space-y-4 lg:col-start-7 lg:col-end-12 lg:mt-0">
-            <p>{scenes.Nom}</p>
+            {
+                scenes.map((scene) => (
+                    <p>{scene.Nom}</p>
+                ))
+            }
             <p>{artiste.Description}</p>
         </div>
     </div>
