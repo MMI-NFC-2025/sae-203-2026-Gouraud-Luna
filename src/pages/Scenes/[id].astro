@@ -1,25 +1,34 @@
 ---
-import { oneScene, scenesByArtisteId } from "../../../backend/backend.mjs";
+import { allArtisteBySceneIdDate, oneScene } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import PbImage from "../../components/PbImage.astro";
+import ArtisteCard from "../../components/ArtisteCard.astro";
 
 const {id} = Astro.params;
 const scene = await oneScene(id);
-const scenes = await scenesByArtisteId(id);
-
+const artistes = await allArtisteBySceneIdDate(id);
 ---
 
 <Layout titre={scene.Nom}>
+    <PbImage
+        record={scene}
+        recordImage={scene.Photo}
+        width={1920}
+        height={900}
+        MyClass="h-56 w-full object-cover md:h-72 lg:h-80"
+    />
     <h1>{scene.Nom}</h1>
     <div class="grille pb-16">
-        <div class="lg:col-start-2 lg:col-end-7">
-            <PbImage
-                record={scene}
-                recordImage={scene.Photo}
-                width={900}
-                height={700}
-                MyClass="h-auto w-full rounded-[7px] object-cover"
-            />
+        <div class="lg:col-start-2 lg:col-end-12 mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {
+                artistes.length > 0 ? (
+                    artistes.map((artiste) => (
+                        <ArtisteCard artiste={artiste} />
+                    ))
+                ) : (
+                    <p class="text-center lg:col-span-3">Aucun artiste programme sur cette scene.</p>
+                )
+            }
         </div>
     </div>
 </Layout>
