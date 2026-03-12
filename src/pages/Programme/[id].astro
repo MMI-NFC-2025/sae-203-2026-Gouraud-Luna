@@ -1,12 +1,12 @@
 ---
-import { oneArtiste, scenesByArtisteId } from "../../../backend/backend.mjs";
+import { oneArtiste, scenesByArtisteId, oneScene } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import PbImage from "../../components/PbImage.astro";
 
 const {id} = Astro.params;
-const artiste = await oneArtiste(id);
-const scenes = await scenesByArtisteId(id);
-const sceneNom = scenes.length > 0 ? scenes.map((scene) => scene.Nom).join(', ') : 'Scene inconnue';
+const scenes = await oneArtiste(id);
+
+const sceneNom = await oneScene(id);
 ---
 
 <Layout titre={artiste.Nom}>
@@ -22,10 +22,7 @@ const sceneNom = scenes.length > 0 ? scenes.map((scene) => scene.Nom).join(', ')
             />
         </div>
         <div class="mt-6 space-y-4 lg:col-start-7 lg:col-end-12 lg:mt-0">
-            <p>
-                {new Date(artiste.Date_heure_production).toLocaleString('fr-FR')}
-            </p>
-            <p><strong>Scene :</strong> {sceneNom}</p>
+            <p>{scenes.Nom}</p>
             <p>{artiste.Description}</p>
         </div>
     </div>

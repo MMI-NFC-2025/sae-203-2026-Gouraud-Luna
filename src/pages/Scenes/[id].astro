@@ -1,0 +1,25 @@
+---
+import { oneScene, scenesByArtisteId } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Layout.astro";
+import PbImage from "../../components/PbImage.astro";
+
+const {id} = Astro.params;
+const scene = await oneScene(id);
+const scenes = await scenesByArtisteId(id);
+
+---
+
+<Layout titre={scene.Nom}>
+    <h1>{scene.Nom}</h1>
+    <div class="grille pb-16">
+        <div class="lg:col-start-2 lg:col-end-7">
+            <PbImage
+                record={scene}
+                recordImage={scene.Photo}
+                width={900}
+                height={700}
+                MyClass="h-auto w-full rounded-[7px] object-cover"
+            />
+        </div>
+    </div>
+</Layout>

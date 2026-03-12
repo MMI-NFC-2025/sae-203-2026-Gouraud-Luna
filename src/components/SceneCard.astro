@@ -1,0 +1,21 @@
+---
+import PbImage from "./PbImage.astro";
+const scenes = Astro.props.artiste;
+---
+
+<a href={`/Scenes/${scenes.id}`} class="block rounded-lg bg-sable p-3 transition hover:opacity-90">
+    <div>
+        <PbImage
+            record={scenes}
+            recordImage={scenes?.Photo}
+            width={400}
+            height={280}
+            MyClass="h-auto w-full rounded-[7px] object-cover"
+        />
+    </div>
+    <div class="mt-3">
+        <p class="font-bold text-back">
+            {scenes.Nom}
+        </p>
+    </div>
+</a>
