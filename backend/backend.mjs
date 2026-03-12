@@ -75,3 +75,21 @@ export async function scenesByArtisteId(artiste_id) {
 
     return Array.isArray(scenes) ? scenes : [scenes];
 }
+
+const formatter = new Intl.DateTimeFormat("fr-FR", {
+        weekday: "long",
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+});
+
+export function formatDate(dateString) {
+        if (!dateString) return "Date non renseignee";
+
+        const date = new Date(dateString);
+        if (Number.isNaN(date.getTime())) return "Date invalide";
+
+        return formatter.format(date);
+}

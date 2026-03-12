@@ -1,5 +1,5 @@
 ---
-import { oneArtiste, scenesByArtisteId } from "../../../backend/backend.mjs";
+import { oneArtiste, scenesByArtisteId, formatDate } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import PbImage from "../../components/PbImage.astro";
 
@@ -26,6 +26,7 @@ const scenes = await scenesByArtisteId(id);
                     <p>{scene.Nom}</p>
                 ))
             }
+            <p>{formatDate(artiste.Date_heure_production)}</p>
             <p>{artiste.Description}</p>
         </div>
     </div>
