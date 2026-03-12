@@ -1,11 +1,18 @@
 ---
-import { oneArtiste, scenesByArtisteId, formatDate } from "../../../backend/backend.mjs";
+import { oneArtiste, scenesByArtisteId, formatDate, getImageUrl } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Layout.astro";
 import PbImage from "../../components/PbImage.astro";
 
 const {id} = Astro.params;
 const artiste = await oneArtiste(id);
 const scenes = await scenesByArtisteId(id);
+const galleryFiles = Array.isArray(artiste.Photos_gallery) ? artiste.Photos_gallery : [];
+const galleryImages = await Promise.all(
+    galleryFiles.map(async (fileName) => ({
+        fileName,
+        url: await getImageUrl(artiste, fileName),
+    }))
+);
 ---
 
 <Layout titre={artiste.Nom}>
@@ -30,4 +37,24 @@ const scenes = await scenesByArtisteId(id);
             <p>{artiste.Description}</p>
         </div>
     </div>
+
+    {
+        galleryImages.length > 0 && (
+            <div class="grille pb-16">
+                <h2 class="lg:col-start-2 lg:col-end-12 mb-4">Galerie</h2>
+                <div class="lg:col-start-2 lg:col-end-12 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {
+                        galleryImages.map((image) => (
+                            <img
+                                src={image.url}
+                                alt={`Galerie ${artiste.Nom}`}
+                                class="h-56 w-full rounded-[7px] object-cover"
+                                loading="lazy"
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+        )
+    }
 </Layout>

@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import ImgHero from "../assets/img/info.webp";
+---
+
+<Layout titre="Informations pratiques">
+    <div>
+        <Image src={ImgHero} alt="Image Hero" class="h-auto w-full" />
+        <h1>Infos pratiques</h1>
+        <div class="grille">
+            <h2 class="lg:col-start-1 lg:col-span-12">Tarifs</h2>
+            <ul class="lg:col-start-2 lg:col-span-5 list-disc pl-8 space-y-2 mt-4">
+                <li>Pass Journée : 12€</li>
+                <li>Pass 2 Jours : 20€</li>
+                <li>Gratuit pour les moins de 12 ans</li>
+                <li>Tarif réduit : 8 € (étudiants, demandeurs d'emploi, bénéficiaires RSA — justificatif demandé)</li>
+            </ul>
+            <p class="lg:col-start-2 lg:col-span-5">Billetterie disponible en ligne et sur place (paiement CB ou espèces).</p>
+        </div>
+        <div class="grille">
+            <h2 class="lg:col-start-1 lg:col-span-12">Transports</h2>
+            <h3 class="lg:col-start-1 lg:col-span-12">En voiture</h3>
+            <ul class="lg:col-start-2 lg:col-span-5 list-disc pl-8 ">
+                <li>Parking gratuit sur place</li>
+                <li>Accès via Belfort ou Montbéliard (20 min)</li>
+                <li>Signalétique dédiée “Flying Tap Fest” dès l’entrée du site du Malsaucy</li>
+            </ul>
+            <h3 class="lg:col-start-1 lg:col-span-12">À vélo</h3>
+            <ul class="lg:col-start-2 lg:col-span-5 list-disc pl-8 ">
+                <li>Park à vélo sécurisé</li>
+                <li>Accès direct par les pistes cyclables du Malsaucy</li>
+            </ul>
+            <h3 class="lg:col-start-1 lg:col-span-12">En bus</h3>
+            <ul class="lg:col-start-2 lg:col-span-5 list-disc pl-8 ">
+                <li>Navettes spéciales depuis Belfort (Gare / Techn’hom) toutes les 30 minutes</li>
+                <li>Dernier retour : 00h30</li>
+            </ul>
+            <h3 class="lg:col-start-1 lg:col-span-12">En train</h3>
+            <ul class="lg:col-start-2 lg:col-span-5 list-disc pl-8 ">
+                <li>Gare TGV Belfort-Montbéliard : 15 min du site</li>
+                <li>Correspondances bus/navettes disponibles</li>
+            </ul>
+        </div>
+        <div class="grille">
+            <h2 class="lg:col-start-1 lg:col-span-12">Hébergement</h2>
+            <h3 class="lg:col-start-1 lg:col-span-12">Hôtels et auberges</h3>
+            <ul class="lg:col-start-2 lg:col-span-5 list-disc pl-8 space-y-2 mt-4">
+                <li>Large choix d’hébergements à Belfort, Montbéliard et Valdoie</li>
+                <li>Partenariats avec plusieurs hôtels (réductions Flying Tap Fest sur présentation du billet)</li>
+            </ul>
+            <h3 class="lg:col-start-1 lg:col-span-12">Camping</h3>
+            <ul class="lg:col-start-2 lg:col-span-5 list-disc pl-8 space-y-2 mt-4">
+                <li>Camping du Malsaucy à 5 minutes à pied du festival</li>
+                <li>Emplacements tentes + sanitaires</li>
+                <li>Réservation conseillée</li>
+            </ul>
+        </div>
+        <div class="grille">
+            <h2 class="lg:col-start-1 lg:col-span-12">Restauration et boissons</h2>
+            <ul class="lg:col-start-2 lg:col-span-5 list-disc pl-8 space-y-2 mt-4">
+                <li>Foodtrucks locaux (options végétariennes & véganes)</li>
+                <li>Bars softs & boissons artisanales</li>
+                <li>Espaces chill ombragés</li>
+            </ul>
+        </div>
+        <div class="grille">
+            <h2 class="lg:col-start-1 lg:col-span-12">Horaires</h2>
+            <ul class="lg:col-start-2 lg:col-span-5 list-disc pl-8 space-y-2 mt-4 mb-10">
+                <li>Ouverture du site : 14h</li>
+                <li>Animations & spectacles : 14h30 – 22h30</li>
+                <li>Fermeture du site : 00h</li>
+            </ul>
+        </div>
+    </div>
+</Layout>
