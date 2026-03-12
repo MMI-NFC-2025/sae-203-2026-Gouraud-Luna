@@ -1,5 +1,6 @@
 ---
 import PbImage from "./PbImage.astro";
+import { formatDate } from "../../backend/backend.mjs";
 const artiste = Astro.props.artiste;
 ---
 
@@ -18,7 +19,7 @@ const artiste = Astro.props.artiste;
             {artiste.Nom}
         </p>
         <p class="text-back">
-            {new Date(artiste.Date_heure_production).toLocaleString('fr-FR')}
+            {formatDate(artiste.Date_heure_production)}
         </p>
     </div>
 </a>
